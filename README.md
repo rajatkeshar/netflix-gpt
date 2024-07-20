@@ -1,7 +1,23 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    - Configured TelwindCSS
 
+# Features
+    - Login/Sign Up
+        - Sign In / Sign Up Form
+        - redirect to Browse Page
+    - Browse Page (After Authentication).
+        - Header
+        - Main Movie
+            - Trailer in background
+            - Title & Description
+            - Movie Suggestions
+                - Movie List * N
+    - NetflixGPT
+        - Search Bar
+        - Movie Suggestions
+        
 ## Available Scripts
 
 In the project directory, you can run:
