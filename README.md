@@ -13,7 +13,8 @@
     - Create SignUp Users Account
     - Implemented SignIn Users API
     - Created Redux Store UserSlice
-
+    - Update Profile
+    - Handle Sign Out
 
 # Features
     - Login/Sign Up

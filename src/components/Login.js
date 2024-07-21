@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { SignInFormValidation, SignUpFormValidation } from '../utils/validate';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,7 +46,16 @@ const Login = () => {
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    navigate('/');
+                    updateProfile(auth.currentUser, {
+                        displayName: username.current.value, 
+                        photoURL: "https://avatars.githubusercontent.com/u/13918193?v=4"
+                      }).then(() => {
+                        navigate('/browse');
+                      }).catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        setErrorMessage(`${errorCode} - ${errorMessage}`);
+                      });                      
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -67,7 +76,7 @@ const Login = () => {
 
     return (
         <div className=''>
-            <Header />
+            <Header isLoginPage={true} />
             <div>
                 <img src='https://help.nflxext.com/0af6ce3e-b27a-4722-a5f0-e32af4df3045_what_is_netflix_5_en.png' alt='background' />
             </div>
