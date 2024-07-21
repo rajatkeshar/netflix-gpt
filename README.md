@@ -2,6 +2,9 @@
 
     - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
     - Configured TelwindCSS
+    - Header
+    - Login Form
+    - Sign Up Form
 
 # Features
     - Login/Sign Up
@@ -17,7 +20,7 @@
     - NetflixGPT
         - Search Bar
         - Movie Suggestions
-        
+
 ## Available Scripts
 
 In the project directory, you can run:
