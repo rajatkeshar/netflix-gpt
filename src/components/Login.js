@@ -14,7 +14,6 @@ const Login = () => {
     const HandleSubmitForm = () => {
         const formType = isSignInForm? "signIn": "signUp";
         let message = null;
-        console.log(password.current.value);
         switch (formType) {
             case "signIn":
                 message = SignInFormValidation(email.current.value, password.current.value);
