@@ -1,10 +1,15 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
-import { SignInFormValidation, SignUpFormValidation } from '../utils/Validate';
+import { SignInFormValidation, SignUpFormValidation } from '../utils/validate';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
+
+    const navigate = useNavigate();
 
     const username = useRef(null);
     const email = useRef(null);
@@ -17,14 +22,43 @@ const Login = () => {
         switch (formType) {
             case "signIn":
                 message = SignInFormValidation(email.current.value, password.current.value);
+                setErrorMessage(message);
+                if(message) return;
+                signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+                .then((userCredential) => { 
+                    const user = userCredential.user;
+                    console.log(user);
+                    navigate('/browse');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorMessage(`${errorCode} - ${errorMessage}`);
+                });
                 break;
+
             case "signUp":
                 message = SignUpFormValidation(email.current.value, password.current.value, confirmPassword.current.value);
-                break
+                setErrorMessage(message);
+                if(message) return;
+
+                createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    navigate('/');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorMessage(`${errorCode} - ${errorMessage}`);
+                });
+                break;
+
             default:
+                setErrorMessage("Internal Server Error!")
                 break;
         }
-        setErrorMessage(message)
     }
 
     const toggleSignInForm = () => {
