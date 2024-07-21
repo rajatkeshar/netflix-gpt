@@ -3,8 +3,11 @@
     - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
     - Configured TelwindCSS
     - Header
+    - Routing
     - Login Form
     - Sign Up Form
+    - Form Validation
+    - useRef Hook
 
 # Features
     - Login/Sign Up
