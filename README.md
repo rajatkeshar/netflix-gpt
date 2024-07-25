@@ -15,6 +15,9 @@
     - Created Redux Store UserSlice
     - Update Profile
     - Handle Sign Out
+    - BugFixed: when user loggedIn it should be on browse page and vice-versa
+    - Unsubscribe onAuthStateChanged callback when user unmount.
+    - Added constants urls into constants files.
 
 # Features
     - Login/Sign Up

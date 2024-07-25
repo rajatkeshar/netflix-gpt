@@ -3,13 +3,14 @@ import Header from './Header'
 import { SignInFormValidation, SignUpFormValidation } from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
+import { BG_IMAGE, DEFAULT_PHOTOURL } from '../utils/constants';
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const username = useRef(null);
     const email = useRef(null);
@@ -27,8 +28,8 @@ const Login = () => {
                 signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => { 
                     const user = userCredential.user;
-                    console.log(user);
-                    navigate('/browse');
+                    // console.log(user);
+                    // navigate('/browse');
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -48,9 +49,9 @@ const Login = () => {
                     console.log(user);
                     updateProfile(auth.currentUser, {
                         displayName: username.current.value, 
-                        photoURL: "https://avatars.githubusercontent.com/u/13918193?v=4"
+                        photoURL: DEFAULT_PHOTOURL
                       }).then(() => {
-                        navigate('/browse');
+                        //navigate('/browse');
                       }).catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
@@ -78,7 +79,7 @@ const Login = () => {
         <div className=''>
             <Header isLoginPage={true} />
             <div>
-                <img src='https://help.nflxext.com/0af6ce3e-b27a-4722-a5f0-e32af4df3045_what_is_netflix_5_en.png' alt='background' />
+                <img src={BG_IMAGE} alt='background' />
             </div>
             <form onSubmit={(e) => e.preventDefault()} className='w-3/12 absolute p-12 bg-black mx-auto top-60 right-0 left-0 text-white bg-opacity-60'>
                 <h1 className='font-bold text-3xl py-4'>{isSignInForm? "Sign In": "Sign Up"}</h1>
@@ -95,3 +96,5 @@ const Login = () => {
 }
 
 export default Login
+//prms id , implementation in progress
+//science it is prms id it is allowed post authentication 
