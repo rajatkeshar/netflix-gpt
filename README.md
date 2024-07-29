@@ -25,7 +25,8 @@
     - Update store with movie data
     - Plannig for mainContainer and secondaryContainer
     - Update store with trailer data
-    - Embadded a youtube video and make it autoplay & mute.
+    - Embadded a youtube video and make it autoplay & mute
+    - Secondary Container
 
 
 # Features
