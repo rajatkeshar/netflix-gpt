@@ -16,8 +16,17 @@
     - Update Profile
     - Handle Sign Out
     - BugFixed: when user loggedIn it should be on browse page and vice-versa
-    - Unsubscribe onAuthStateChanged callback when user unmount.
+    - Unsubscribe onAuthStateChanged callback when user unmount
     - Added constants urls into constants files.
+    - Register for TMDB Applications
+    - Get data from TMDB now Playing movies list
+    - Custom hooks for now playing and trailer
+    - Create movie slice
+    - Update store with movie data
+    - Plannig for mainContainer and secondaryContainer
+    - Update store with trailer data
+    - Embadded a youtube video and make it autoplay & mute.
+
 
 # Features
     - Login/Sign Up
