@@ -11,3 +11,11 @@ export const API_OPTIONS = {
 };
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const MOVIES_TYPE = ["now_playing", "popular", "top_rated", "upcoming"];
+export const MOVIES_TYPE_MAPPING = {
+  "now_playing": { title: "Now Playing", reducer: "nowPlayingMovies" },
+  "popular": { title: "Popular Movies", reducer: "popularMovies" },
+  "top_rated": { title: "Top Rated Movies", reducer: "topRatedMovies" },
+  "upcoming": { title: "Upcoming Movies", reducer: "upcomingMovies" }
+}

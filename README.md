@@ -27,6 +27,11 @@
     - Update store with trailer data
     - Embadded a youtube video and make it autoplay & mute
     - Secondary Container
+    - Created Movie List
+    - Build Movie Card
+    - TMBD image CDN URL
+    - Made browse pase with tailwind CSS
+    - useMovies Custom Hooks Modules
 
 
 # Features
