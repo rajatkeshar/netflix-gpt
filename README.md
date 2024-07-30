@@ -32,6 +32,8 @@
     - TMBD image CDN URL
     - Made browse pase with tailwind CSS
     - useMovies Custom Hooks Modules
+    - GPT Search Feature
+    - Multi language Feature*
 
 
 # Features

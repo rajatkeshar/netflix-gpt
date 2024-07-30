@@ -19,3 +19,9 @@ export const MOVIES_TYPE_MAPPING = {
   "top_rated": { title: "Top Rated Movies", reducer: "topRatedMovies" },
   "upcoming": { title: "Upcoming Movies", reducer: "upcomingMovies" }
 }
+
+export const SUPPORTED_LANGUAGES = [
+  {identifier: "en", name: "English"},
+  {identifier: "hi", name: "Hindi"},
+  {identifier: "es", name: "Spanish"}
+]
