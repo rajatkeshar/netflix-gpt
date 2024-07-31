@@ -34,7 +34,8 @@
     - useMovies Custom Hooks Modules
     - GPT Search Feature
     - Multi language Feature*
-
+    - Integrated GPT API
+    - Integrated TMDB API to search movies.
 
 # Features
     - Login/Sign Up

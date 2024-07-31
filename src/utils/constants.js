@@ -25,3 +25,5 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: "hi", name: "Hindi"},
   {identifier: "es", name: "Spanish"}
 ]
+
+export const OPENROUTER_KEY = "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";
