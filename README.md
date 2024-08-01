@@ -35,7 +35,9 @@
     - GPT Search Feature
     - Multi language Feature*
     - Integrated GPT API
-    - Integrated TMDB API to search movies.
+    - Integrated TMDB API to search movies
+    - Added GPT movie suggestions into the GPT Slice
+    - Display movie suggestions on search page.
 
 # Features
     - Login/Sign Up
