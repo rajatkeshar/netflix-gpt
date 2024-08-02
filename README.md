@@ -38,6 +38,7 @@
     - Integrated TMDB API to search movies
     - Added GPT movie suggestions into the GPT Slice
     - Display movie suggestions on search page.
+    - Make UI Responsive to mobile and desktop browser.
 
 # Features
     - Login/Sign Up

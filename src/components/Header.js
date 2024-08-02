@@ -48,9 +48,9 @@ const Header = (props) => {
     };
 
     return (
-        <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between'>
+        <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 md:flex justify-between'>
             <img
-                className='w-48' 
+                className='w-32 md:w-48' 
                 src={LOGO} 
                 alt="logo" 
             />

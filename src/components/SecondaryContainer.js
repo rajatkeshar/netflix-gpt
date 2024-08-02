@@ -8,7 +8,7 @@ const SecondaryContainer = () => {
   
   return (
     <div className='bg-black'>
-      <div className='-mt-60 pl-6 z-20 relative'>
+      <div className='mt-0 md:-mt-60 pl-1 md:pl-8 relative z-20'>
         {MOVIES_TYPE.map((type) => <MovieList key={MOVIES_TYPE_MAPPING[type]['title']} title={MOVIES_TYPE_MAPPING[type]['title']} movies={movies[MOVIES_TYPE_MAPPING[type]['reducer']]}/>)}
         {/* <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
         <MovieList title={"Treanding"} movies={movies.nowPlayingMovies}/>
