@@ -7,9 +7,10 @@ import NotFound from './NotFound'
 
 const Body = () => {
     const appRoutes = createBrowserRouter([
-        { path: '/',        element: <Login /> },
-        { path: '/browse',  element: <Browse /> },
-        { path: '*',         element: <NotFound />}
+        { path: '/netflix-gpt', element: <Login />},
+        { path: '/',            element: <Login /> },
+        { path: '/browse',      element: <Browse /> },
+        { path: '*',            element: <NotFound />}
     ]);
 
     return (
