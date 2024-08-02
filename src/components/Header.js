@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 
 import { auth } from '../utils/firebase';
@@ -47,13 +47,19 @@ const Header = (props) => {
         dispatch(changeLanguage(e.target.value));
     };
 
+    const HandleLogoClick = () => {
+        showGPTSearch && dispatch(toggleGPTSearchView());
+    };
+
     return (
         <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 md:flex justify-between'>
-            <img
-                className='w-32 md:w-48' 
-                src={LOGO} 
-                alt="logo" 
-            />
+            <Link to="/" onClick={HandleLogoClick}>
+                <img
+                    className='w-32 md:w-48' 
+                    src={LOGO} 
+                    alt="logo" 
+                />
+            </Link>
             {user && !isLoginPage &&
                 <div>
                     {showGPTSearch && 
