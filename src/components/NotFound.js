@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import { BG_IMAGE } from '../utils/constants'
 
 const NotFound = () => {
