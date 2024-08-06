@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { language } from '../utils/languageConstants';
 import openai from '../utils/openai';
 import { API_OPTIONS } from '../utils/constants';
-import { addGPTMovieResults } from '../utils/gptSlice';
+import { addGPTMovieResults, setLoading } from '../utils/gptSlice';
 
 const GPTSearchBar = () => {
 
@@ -19,6 +19,7 @@ const GPTSearchBar = () => {
     }
 
     const HandleGPTSearchClick = async () => {
+        dispatch(setLoading(true));
         const GPTQuery = `Act as a movie recommendation system and suggest some movies for the query: ${searchText.current.value}. Only give me names of 5 movies in comma saperated like the example given ahed. example result: Gadar, Don, Golmal, Koi Mil Gaya.`;
 
         const chatCompletion = await openai.chat.completions.create({
@@ -35,16 +36,17 @@ const GPTSearchBar = () => {
         const tmdbMovies = await Promise.all(pArray);
         console.log(tmdbMovies);
 
-        dispatch(addGPTMovieResults({movieTitles: gptMovieSuggestions, movieResults: tmdbMovies}))
+        dispatch(addGPTMovieResults({movieTitles: gptMovieSuggestions, movieResults: tmdbMovies}));
+        dispatch(setLoading(false));
     };
 
     return (
-            <div className='pt-[40%] md:pt-[10%] flex justify-center'>
-                <form className='w-full md:w-1/2 bg-black grid grid-cols-12 rounded-lg' onSubmit={(e)=> e.preventDefault()}>
-                    <input ref={searchText} className='p-4 m-4 col-span-9' type='text' placeholder={language[identifier]['placeHolder']}/>
-                    <button className='col-span-3 m-4 p-2 px-4 bg-red-700 text-white rounded-lg' onClick={HandleGPTSearchClick}>{language[identifier]['search']}</button>
-                </form>
-            </div>
+        <div className='pt-[40%] md:pt-[10%] flex justify-center'>
+            <form className='w-full md:w-1/2 bg-black grid grid-cols-12 rounded-lg' onSubmit={(e)=> e.preventDefault()}>
+                <input ref={searchText} className='p-4 m-4 col-span-9' type='text' placeholder={language[identifier]['placeHolder']}/>
+                <button className='col-span-3 m-4 p-2 px-4 bg-red-700 text-white rounded-lg' onClick={HandleGPTSearchClick}>{language[identifier]['search']}</button>
+            </form>
+        </div>
     )
 }
 

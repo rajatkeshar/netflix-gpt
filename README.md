@@ -40,6 +40,7 @@
     - Display movie suggestions on search page.
     - Make UI Responsive to mobile and desktop browser.
     - Added Joyride for OnBoarding Screen
+    - Shimmer UI Component
 
 # Features
     - Login/Sign Up
