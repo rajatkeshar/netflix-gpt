@@ -67,7 +67,7 @@ const Header = (props) => {
                             {SUPPORTED_LANGUAGES.map((lang)=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
                         </select>
                     }
-                    <button className='w-28 h-8 rounded-lg text-white bg-purple-500 hover:bg-opacity-80' onClick={HandleGPTSearchView}>{showGPTSearch? "Homepage": "GPT Search"}</button>
+                    <button className='search-gpt w-28 h-8 rounded-lg text-white bg-purple-500 hover:bg-opacity-80' onClick={HandleGPTSearchView}>{showGPTSearch? "Homepage": "GPT Search"}</button>
                     <span className='text-white'>{user.displayName? ` Welcome, ${user.displayName}`: user.email} </span>
                     <button className=' bg-red-700 w-28 h-8 rounded-lg text-white hover:bg-opacity-80' onClick={HandleLogout}>Sign Out</button>    
                 </div>

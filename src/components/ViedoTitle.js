@@ -7,8 +7,8 @@ const ViedoTitle = (props) => {
             <h1 className='text-2xl md:text-6xl font-bold'>{title}</h1>
             <p className='hidden md:inline-block py-6 text-lg w-1/4'>{overview}</p>
             <div className='my-2 md:0'>
-                <button className='bg-white text-black p-2 md:p-4 px-6 md:px-12 text-xl rounded-lg hover:bg-opacity-80'> ▶ Play</button>
-                <button className=' mx-2 bg-gray-500 text-white p-2 md:p-4 px-6 md:px-12 text-xl bg-opacity-50 rounded-lg'>More Info❗️</button>
+                <button className='play bg-white text-black p-2 md:p-4 px-6 md:px-12 text-xl rounded-lg hover:bg-opacity-80'> ▶ Play</button>
+                <button className='more-info mx-2 bg-gray-500 text-white p-2 md:p-4 px-6 md:px-12 text-xl bg-opacity-50 rounded-lg'>More Info❗️</button>
             </div>
         </div>
     )
