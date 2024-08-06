@@ -39,6 +39,7 @@
     - Added GPT movie suggestions into the GPT Slice
     - Display movie suggestions on search page.
     - Make UI Responsive to mobile and desktop browser.
+    - Added Joyride for OnBoarding Screen
 
 # Features
     - Login/Sign Up
