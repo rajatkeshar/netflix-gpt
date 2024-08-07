@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import Joyride from 'react-joyride';
+import { useDispatch, useSelector } from 'react-redux';
+import { setOnBoarding } from '../utils/configSlice';
+import { JOY_RIDE_STATUS } from '../utils/constants';
 
 const JoyRide = () => {
-    const [{run, steps}] = useState({
-        run: true,
+    
+    const dispatch = useDispatch();
+    const onBoarding = useSelector((state) => state.config.onBoarding);
+
+    const [{steps}] = useState({
         steps: [
           {
             content: <h2>Let's begin our journey!</h2>,
@@ -30,10 +36,18 @@ const JoyRide = () => {
           // Add more steps as needed
     ]});
     
+    const handleJoyrideCallback = (data) => {
+        const { status } = data;
+
+        if (JOY_RIDE_STATUS.includes(status)) {
+            dispatch(setOnBoarding(false));
+        }
+    };
+
     return (
         <Joyride
-            callback={() => {}}
-            run={run}
+            callback={handleJoyrideCallback}
+            run={onBoarding}
             steps={steps}
             hideBackButton={false}
             scrollToFirstStep={true}

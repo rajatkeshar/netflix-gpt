@@ -27,3 +27,5 @@ export const SUPPORTED_LANGUAGES = [
 ]
 
 export const OPENROUTER_KEY = process.env.REACT_APP_OPENROUTER_KEY;
+
+export const JOY_RIDE_STATUS = ['finished', 'skipped']
