@@ -27,12 +27,8 @@ const Browse = () => {
               <GPTSearch />
           ): (
             <React.Fragment>
-                <div className="main-container">
-                    <MainContainer />
-                </div>
-                <div className="secondary-container">
-                    <SecondaryContainer />
-                </div>
+                <MainContainer />
+                <SecondaryContainer />
             </React.Fragment>  
           )}
       </div>
