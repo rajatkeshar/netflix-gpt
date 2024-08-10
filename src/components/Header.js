@@ -8,23 +8,28 @@ import { addUser, removeUser } from '../utils/userSlice';
 import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
 import { toggleGPTSearchView } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
+import { changeVideoPage } from '../utils/moviesSlice';
 
 const Header = (props) => {
     const { isLoginPage } = props;
     const user = useSelector((state) => state.user);
     const showGPTSearch = useSelector((state) => state.gpt.showGPTSearch);
+    const showVideoPage = useSelector((state) => state.movies.showVideoPage);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-              const {uid, email, displayName, photoURL} = user;
-              dispatch(addUser({uid, email, displayName, photoURL}));
-              navigate('/browse');
+            if (user && showVideoPage) {
+                navigate('/video');
+            } else if(user){
+                const {uid, email, displayName, photoURL} = user;
+                dispatch(addUser({uid, email, displayName, photoURL}));
+                navigate('/browse');
             } else {
-              dispatch(removeUser());
-              navigate('/');
+                dispatch(removeUser());
+                navigate('/');
             }
           });
 
@@ -41,6 +46,8 @@ const Header = (props) => {
 
     const HandleGPTSearchView = () => {
         dispatch(toggleGPTSearchView());
+        showVideoPage && dispatch(changeVideoPage(false));
+        navigate('/browse');
     }
 
     const HandleLanguageChange = (e) => {
@@ -49,6 +56,7 @@ const Header = (props) => {
 
     const HandleLogoClick = () => {
         showGPTSearch && dispatch(toggleGPTSearchView());
+        showVideoPage && dispatch(changeVideoPage(false));
     };
 
     return (

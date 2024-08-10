@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addCurrentVideoId } from '../utils/moviesSlice';
+import { addCurrentVideoId, changeVideoPage } from '../utils/moviesSlice';
 
 const ViedoTitle = (props) => {
     const { title, overview, movieId } = props;
@@ -10,6 +10,7 @@ const ViedoTitle = (props) => {
 
     const HandleTrailerPlay = () => {
         dispatch(addCurrentVideoId(movieId));
+        dispatch(changeVideoPage(true));
         navigate('/video');
     }
     return (

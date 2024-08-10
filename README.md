@@ -41,6 +41,7 @@
     - Make UI Responsive to mobile and desktop browser.
     - Added Joyride for OnBoarding Screen
     - Shimmer UI Component
+    - Implemented Play Now Screen
 
 # Features
     - Login/Sign Up

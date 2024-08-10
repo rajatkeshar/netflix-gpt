@@ -1,22 +1,38 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Shimmer from './Shimmer';
 import useVideoTeaser from '../hooks/useVideo';
+import { changeVideoPage } from '../utils/moviesSlice';
+import Header from './Header';
 
 const VideoPlay = () => {
-    const {currentVideoId, currentVideo} = useSelector((state) => state.movies);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  console.log("location: ", location);
+  const {currentVideoId, currentVideo} = useSelector((state) => state.movies);
 
-    useVideoTeaser(currentVideoId);
+  useVideoTeaser(currentVideoId);
+
+  useEffect(() => {
+    // Set showVideoPage to false when location changes
+    if(location.pathname !== '/video') {
+      dispatch(changeVideoPage(false));
+    }
+}, [location, dispatch]);
 
   return ( currentVideo? (
-    <div className='w-screen bg-black'>
-        <iframe
-            className='w-screen aspect-video' 
-            src= {`https://www.youtube.com/embed/${currentVideo.key}?si=i3sn8_3Zdzo-eMdX&autoplay=1&mute=1`}
-            title="YouTube video player"  
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  
-        >
-        </iframe>
+    <div>
+      <Header isLoginPage={false} />
+      <div className='pt-[20%] md:pt-0 bg-black'>
+          <iframe
+              className='w-screen aspect-video' 
+              src= {`https://www.youtube.com/embed/${currentVideo.key}?si=i3sn8_3Zdzo-eMdX&autoplay=1&mute=1`}
+              title="YouTube video player"  
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  
+          >
+          </iframe>
+      </div>
     </div>
   ): (
     <Shimmer />
